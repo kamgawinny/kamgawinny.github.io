@@ -1,0 +1,395 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Couleurs principales - Palette monochrome élégante */
+    --color-black: #000000;
+    --color-dark: #1A1A1A;
+    --color-charcoal: #2D2D2D;
+
+    /* Neutres chauds */
+    --color-white: #FFFFFF;
+    --color-cream: #F5F3EF;
+    --color-warm-grey: #E8E4DC;
+    --color-sand: #D9D5CD;
+
+    /* Gris */
+    --color-grey-dark: #4A4A4A;
+    --color-grey: #6B6B6B;
+    --color-grey-light: #9A9A9A;
+    --color-grey-lighter: #E0E0E0;
+
+    /* Accent */
+    --color-accent: #000000;
+
+    /* Hiérarchie typographique */
+    --text-display: clamp(3rem, 10vw, 7rem);
+    --text-display-weight: 400;
+    --text-display-leading: 0.95;
+
+    --text-chapter: clamp(2.5rem, 6vw, 5rem);
+    --text-chapter-weight: 400;
+
+    --text-h1: clamp(1.8rem, 4vw, 3rem);
+    --text-h1-weight: 500;
+
+    --text-h2: clamp(1.4rem, 3vw, 2rem);
+    --text-h2-weight: 400;
+
+    --text-label: 0.75rem;
+    --text-label-tracking: 0.25em;
+
+    --text-body: 1.0625rem;
+    --text-body-leading: 1.75;
+
+    --text-small: 0.875rem;
+    --text-caption: 0.75rem;
+
+    --text-stat: clamp(4rem, 12vw, 10rem);
+    --text-stat-weight: 300;
+
+    --text-watermark: clamp(5rem, 20vw, 15rem);
+    --text-watermark-opacity: 0.08;
+
+    /* Espacements */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2.5rem;
+    --space-xl: 4rem;
+    --space-2xl: 6rem;
+    --space-3xl: 8rem;
+    --space-4xl: 12rem;
+
+    --section-padding-y: clamp(4rem, 10vh, 8rem);
+    --section-padding-x: clamp(1.5rem, 5vw, 6rem);
+
+    --container-sm: 640px;
+    --container-md: 900px;
+    --container-lg: 1200px;
+    --container-xl: 1440px;
+
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-base: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slower: 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+
+    /* Effets */
+    --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.04);
+    --border-thin: 1px solid var(--color-grey-lighter);
+    --border-dark: 1px solid var(--color-black);
+
+    /* Shadcn variables */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-white text-[var(--color-grey)] antialiased;
+    font-family: var(--font-sans), sans-serif;
+    font-size: var(--text-body);
+    line-height: var(--text-body-leading);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif), serif;
+    color: var(--color-black);
+  }
+}
+
+@layer utilities {
+  .text-display {
+    font-size: var(--text-display);
+    font-weight: var(--text-display-weight);
+    line-height: var(--text-display-leading);
+    font-family: var(--font-serif), serif;
+  }
+
+  .text-chapter {
+    font-size: var(--text-chapter);
+    font-weight: var(--text-chapter-weight);
+    font-family: var(--font-serif), serif;
+  }
+
+  .text-h1 {
+    font-size: var(--text-h1);
+    font-weight: var(--text-h1-weight);
+  }
+
+  .text-h2 {
+    font-size: var(--text-h2);
+    font-weight: var(--text-h2-weight);
+  }
+
+  .text-label {
+    font-size: var(--text-label);
+    letter-spacing: var(--text-label-tracking);
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  .chapter-label {
+    font-size: calc(var(--text-label) + 3px);
+    letter-spacing: var(--text-label-tracking);
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  .mission-label {
+    font-size: calc(var(--text-label) + 2px);
+    letter-spacing: var(--text-label-tracking);
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  .text-stat {
+    font-size: var(--text-stat);
+    font-weight: var(--text-stat-weight);
+    line-height: 1;
+    font-family: var(--font-serif), serif;
+  }
+
+  .text-accent {
+    font-style: italic;
+    font-weight: 400;
+    color: #C8A97E;
+  }
+
+  .layout-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+  }
+
+  .layout-asymmetric {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    gap: var(--space-xl);
+  }
+
+  .layout-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+  }
+
+  .bg-cream {
+    background-color: var(--color-cream);
+  }
+
+  .bg-warm-grey {
+    background-color: var(--color-warm-grey);
+  }
+
+  .bg-charcoal {
+    background-color: var(--color-charcoal);
+  }
+
+  .text-grey {
+    color: var(--color-grey);
+  }
+
+  .text-grey-dark {
+    color: var(--color-grey-dark);
+  }
+
+  .text-grey-light {
+    color: var(--color-grey-light);
+  }
+
+  .section-padding {
+    padding: var(--section-padding-y) var(--section-padding-x);
+  }
+
+  .watermark {
+    position: absolute;
+    font-size: var(--text-watermark);
+    font-family: var(--font-serif), serif;
+    font-weight: 300;
+    color: var(--color-black);
+    opacity: var(--text-watermark-opacity);
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
+    z-index: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .mission-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.5rem 2rem;
+    margin: 3rem auto 2rem auto;
+    max-width: 700px;
+    text-align: center;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(0, 0, 0, 0.03) 20%,
+      rgba(0, 0, 0, 0.03) 80%,
+      transparent 100%
+    );
+    border-radius: 4px;
+  }
+
+  .cta-icon {
+    font-size: 1.25rem;
+    color: var(--color-dark);
+    animation: bounceDown 2s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+
+  @keyframes bounceDown {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+
+  .cta-text {
+    font-family: var(--font-sans), sans-serif;
+    font-size: 0.95rem;
+    color: var(--color-grey-dark);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .cta-text strong {
+    color: var(--color-dark);
+    font-weight: 600;
+  }
+
+  @media (max-width: 768px) {
+    .layout-split {
+      grid-template-columns: 1fr;
+    }
+
+    .layout-asymmetric {
+      grid-template-columns: 1fr;
+    }
+
+    .layout-columns {
+      grid-template-columns: 1fr;
+    }
+
+    .mission-cta {
+      flex-direction: column;
+      gap: 0.75rem;
+      padding: 1.25rem 1rem;
+      margin: 2rem 1rem;
+    }
+
+    .cta-icon {
+      font-size: 1rem;
+    }
+
+    .cta-text {
+      font-size: 0.875rem;
+    }
+  }
+}
+
+/* CV Download Button & LinkedIn Button */
+.cv-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: transparent;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.cv-download-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: #ffffff;
+  transition: width 0.3s ease;
+  z-index: 0;
+}
+
+.cv-download-btn:hover::before {
+  width: 100%;
+}
+
+.cv-download-btn:hover {
+  color: #1A1A1A;
+  border-color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.12);
+}
+
+.cv-btn-icon {
+  position: relative;
+  z-index: 1;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cv-download-btn:hover .cv-btn-icon {
+  animation: bounceDown 0.6s ease infinite;
+}
+
+@keyframes bounceDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(3px); }
+}
+
+.cv-btn-label {
+  position: relative;
+  z-index: 1;
+}
